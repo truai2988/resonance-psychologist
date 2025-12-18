@@ -25,7 +25,11 @@
             <img src="/hero-bg.png" alt="Background" class="hero-bg">
             <div class="hero-content">
                 <h1 class="hero-title reveal">共鳴の心理士</h1>
-                <p class="reveal" style="letter-spacing: 0.2rem; font-weight: 300;">私が整っていること。それが、あなたへの最大のギフト。</p>
+                <p class="reveal" style="letter-spacing: 0.2rem; font-weight: 300; margin-bottom: 40px;">
+                    私が整っていること。それが、あなたへの最大のギフト。</p>
+                <div class="reveal">
+                    <a href="apply.html" class="btn-primary">初回セッションを申し込む</a>
+                </div>
             </div>
         </section>
 
@@ -54,12 +58,13 @@
                             <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 20px;">心理士としての歩み
                             </h3>
                             <p style="color: var(--c-text-muted); margin-bottom: 20px;">
-                                元・行政書士。法的な解決だけでは救えない領域に向き合うため、心理の世界へ。パーソン・センタード・アプローチを基盤に、朗読を通じた独自の癒しを提供しています。</p>
+                                元・行政書士 /
+                                元・ITエンジニア。法的な解決だけでは救えない領域に向き合うため、心理の世界へ。パーソン・センタード・アプローチを基盤に、朗読を通じた独自の癒しを提供しています。</p>
                         </div>
                         <div style="border-left: 1px solid #eee; padding-left: 50px;">
                             <ul style="list-style: none; color: var(--c-text-muted);">
                                 <li style="margin-bottom: 15px;"><span class="nav-dot"></span> メンタルケア心理士</li>
-                                <li style="margin-bottom: 15px;"><span class="nav-dot"></span> 第2種情報処理技術者</li>
+                                <li style="margin-bottom: 15px;"><span class="nav-dot"></span> 元・第2種情報処理技術者</li>
                                 <li style="margin-bottom: 15px;"><span class="nav-dot"></span> 朗読セラピー主宰</li>
                             </ul>
                         </div>
@@ -74,17 +79,50 @@
                 <h2 class="section-title">分かち合う、調和の時間</h2>
             </div>
             <div class="service-grid">
+                <div class="card reveal featured">
+                    <span class="card-tag">First Session</span>
+                    <h3>オリエンテーションセッション</h3>
+                    <p style="color: var(--c-text-muted); margin-bottom: 15px;">築き上げたあなたと、素のあなたが手を取り合うための最初の対話。</p>
+                    <div class="price">¥25,000 / 90min</div>
+                    <a href="apply.html" class="btn-small">このセッションを申し込む</a>
+                </div>
                 <div class="card reveal">
                     <h3>場のセッション</h3>
-                    <p style="color: var(--c-text-muted);">穏やかな「場」に招き入れる時間。共に過ごすことで、あなた自身の周波数を優しく整えていく。</p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 15px;">
+                        穏やかな「場」に招き入れる時間。共に過ごすことで、あなた自身の周波数を優しく整えていく。</p>
+                    <div class="price">¥15,000 / 60min</div>
+                    <a href="apply.html" class="btn-small">ご予約・相談</a>
                 </div>
                 <div class="card reveal">
                     <h3>コンディショニング朗読</h3>
-                    <p style="color: var(--c-text-muted);">声の響きに、安らぎをのせて。聴くだけで呼吸が深くなる、マインドフルな朗読体験。</p>
+                    <p style="color: var(--c-text-muted); margin-bottom: 15px;">声の響きに、安らぎをのせて。聴くだけで呼吸が深くなる、マインドフルな朗読体験。
+                    </p>
+                    <div class="price">¥5,000 / 30min</div>
+                    <a href="apply.html" class="btn-small">ご予約・相談</a>
                 </div>
-                <div class="card reveal">
-                    <h3>機嫌の仕度</h3>
-                    <p style="color: var(--c-text-muted);">透明な「場」であり続けるための専門的なトレーニングとコンディショニング。</p>
+            </div>
+        </section>
+
+        <section id="flow" class="container reveal">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Process</span>
+                <h2 class="section-title">お申し込み後の流れ</h2>
+            </div>
+            <div class="flow-grid">
+                <div class="flow-item">
+                    <div class="flow-num">01</div>
+                    <h4>ご予約のお申し込み</h4>
+                    <p>下記フォームより必要事項を入力し、送信してください。</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-num">02</div>
+                    <h4>日程の調整</h4>
+                    <p>2営業日以内に、私、玉置より直接メールをお送りし、実施日時を確定します。</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-num">03</div>
+                    <h4>お支払いと確定</h4>
+                    <p>日程確定後、Stripe社の安全な決済ページ（クレジットカード）のリンクをお送りします。決済完了をもって予約確定となります。</p>
                 </div>
             </div>
         </section>
@@ -106,17 +144,43 @@
         <section id="contact" style="background: var(--c-accent-soft); text-align: center;">
             <div class="container reveal">
                 <h2 class="section-title">共鳴の場へ</h2>
-                <p style="margin-bottom: 40px;">ご質問やご相談はこちらから</p>
-                <a href="#" class="card"
-                    style="display: inline-block; padding: 15px 50px; text-decoration: none; color: inherit; font-weight: 500;">Contact
-                    Form</a>
+                <p style="margin-bottom: 40px;">ご質問や初回セッションのお申し込みはこちらから</p>
+                <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px;">
+                        あなたの今の想いや、セッションで扱いたいテーマをお聞かせください。<br>
+                        以下のボタンより、お申し込みフォームへお進みいただけます。
+                    </p>
+                    <a href="apply.html" class="btn-primary"
+                        style="display: block; text-align: center;">お申し込みフォームへ進む</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="logo" style="margin-bottom: 20px;">寄りSOMAR</div>
-        <p style="font-size: 0.8rem; color: var(--c-text-muted);">&copy; 2025 Resonance Practitioner</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 10px;">寄りSOMAR</div>
+                    <p style="font-size: 0.8rem; color: var(--c-text-muted); max-width: 300px;">
+                        築き上げたあなたと、素のあなたが手を取り合う時間。</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="/legal.html">特定商取引法に基づく表記</a></li>
+                        <li><a href="/privacy.html">プライバシーポリシー / キャンセルポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-disclaimer"
+                style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.05);">
+                <p style="font-size: 0.75rem; color: var(--c-text-muted); line-height: 1.6;">
+                    【重要なお知らせ】当サービスは、心理的な支援や自己理解を促すカウンセリングサービスです。医療行為ではありません。精神的な疾患の診断、治療、薬物療法等の医療行為は行いません。医療的な治療が必要と判断される場合は、適切な医療機関への受診をお勧めいたします。
+                </p>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--c-text-muted); margin-top: 30px;">&copy; 2025 Resonance
+                Practitioner | 合同会社カイシュウ</p>
+        </div>
     </footer>
 
     <script type="module" src="/src/main.ts"></script>
