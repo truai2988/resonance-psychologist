@@ -9,10 +9,6 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                legal: resolve(__dirname, 'legal.html'),
-                privacy: resolve(__dirname, 'privacy.html'),
-                apply: resolve(__dirname, 'apply.html'),
                 noctiluca: resolve(__dirname, 'noctiluca.html'),
             },
         },
