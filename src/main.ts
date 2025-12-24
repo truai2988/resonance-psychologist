@@ -108,8 +108,50 @@ async function initAutoYouTube() {
     });
 
   } catch (error) {
-    console.error('Failed to load YouTube feed:', error);
-    grid.innerHTML = '<p style="text-align:center; color:var(--c-text-muted);">動画の読み込みに失敗しました。</p>';
+    console.warn('Failed to load YouTube feed, using fallback content:', error);
+    
+    // Fallback: Show curated list of videos
+    const fallbackItems = [
+        {
+            title: '「手放す」ことについて',
+            videoId: '-Jrh8xTBXbQ',
+            date: '2025/12/19'
+        },
+        {
+            title: '心に残る「ありがとう」：思い出の中に見つける安らぎ',
+            videoId: 'miHVFmngHPo',
+            date: '2025/12/20'
+        },
+        {
+            title: '私たちの心って、どこかで繋がってる？',
+            videoId: 'sjznv6sMcKY',
+            date: '2025/12/07'
+        }
+    ];
+
+    grid.innerHTML = ''; // Clear corrupted error message if any
+
+    fallbackItems.forEach(item => {
+        const card = document.createElement('a');
+        card.href = 'https://www.youtube.com/watch?v=' + item.videoId;
+        card.className = 'reading-card reveal';
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+
+        card.innerHTML = `
+        <div class="reading-thumb">
+          <img src="https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg" alt="${item.title}" loading="lazy">
+        </div>
+        <div class="reading-info">
+          <h4 class="reading-title">${item.title}</h4>
+          <span class="reading-date">${item.date}</span>
+        </div>
+      `;
+      grid.appendChild(card);
+      
+      // Add simple reveal
+       setTimeout(() => card.classList.add('active'), 100);
+    });
   }
 }
 
