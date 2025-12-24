@@ -69,7 +69,7 @@ async function initAutoYouTube() {
 
     grid.innerHTML = ''; // Clear skeleton/loading state
 
-    selected.forEach(item => {
+    selected.forEach((item: any) => {
       const title = item.title || '';
       let videoId = '';
       if (item.guid) {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Smooth scroll implementation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener('click', function (this: HTMLAnchorElement, e) {
     e.preventDefault();
     const href = this.getAttribute('href');
     if (href) {
