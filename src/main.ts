@@ -109,7 +109,7 @@ async function initAutoYouTube() {
 
   } catch (error) {
     console.error('Failed to load YouTube feed:', error);
-    grid.innerHTML = '<p style="text-align:center; color:var(--c-text-muted);">蜍慕判縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ縺ｫ螟ｱ謨励＠縺ｾ縺励◆縲・/p>';
+    grid.innerHTML = '<p style="text-align:center; color:var(--c-text-muted);">動画の読み込みに失敗しました。</p>';
   }
 }
 
