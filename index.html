@@ -196,52 +196,12 @@
                     </p>
                 </div>
 
-                <!-- Static Video Grid -->
-                <div class="reading-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
-                    
-                    <!-- Video 1 -->
-                    <a href="https://www.youtube.com/watch?v=-Jrh8xTBXbQ" target="_blank" rel="noopener noreferrer" class="reading-card reveal" style="text-decoration: none; display: block; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s ease;">
-                        <div class="reading-thumb" style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
-                            <img src="https://i.ytimg.com/vi/-Jrh8xTBXbQ/hqdefault.jpg" alt="「手放す」ことについて" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                        </div>
-                        <div class="reading-info" style="padding: 20px;">
-                            <h4 style="font-size: 1rem; color: var(--c-text); margin-bottom: 10px; line-height: 1.5;">「手放す」ことについて</h4>
-                            <span style="font-size: 0.85rem; color: var(--c-text-muted);">2025/12/19</span>
-                        </div>
-                    </a>
-
-                    <!-- Video 2 -->
-                    <a href="https://www.youtube.com/watch?v=miHVFmngHPo" target="_blank" rel="noopener noreferrer" class="reading-card reveal" style="text-decoration: none; display: block; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; transition-delay: 0.1s;">
-                        <div class="reading-thumb" style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
-                            <img src="https://i.ytimg.com/vi/miHVFmngHPo/hqdefault.jpg" alt="心に残る「ありがとう」" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                        </div>
-                        <div class="reading-info" style="padding: 20px;">
-                            <h4 style="font-size: 1rem; color: var(--c-text); margin-bottom: 10px; line-height: 1.5;">心に残る「ありがとう」</h4>
-                            <span style="font-size: 0.85rem; color: var(--c-text-muted);">2025/12/20</span>
-                        </div>
-                    </a>
-
-                    <!-- Video 3 -->
-                    <a href="https://www.youtube.com/watch?v=sjznv6sMcKY" target="_blank" rel="noopener noreferrer" class="reading-card reveal" style="text-decoration: none; display: block; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; transition-delay: 0.2s;">
-                        <div class="reading-thumb" style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
-                            <img src="https://i.ytimg.com/vi/sjznv6sMcKY/hqdefault.jpg" alt="私たちの心って、どこかで繋がってる？" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                            <div class="play-icon" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: rgba(0,0,0,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                        </div>
-                        <div class="reading-info" style="padding: 20px;">
-                            <h4 style="font-size: 1rem; color: var(--c-text); margin-bottom: 10px; line-height: 1.5;">私たちの心って、どこかで繋がってる？</h4>
-                            <span style="font-size: 0.85rem; color: var(--c-text-muted);">2025/12/07</span>
-                        </div>
-                    </a>
-
+                <!-- Dynamic Random Video Grid -->
+                <h4 style="font-family: var(--font-serif); margin-bottom: 20px; font-size: 1.1rem; color: var(--c-text);">過去のピックアップ</h4>
+                <div id="reading-grid" class="reading-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <!-- JS will inject random 3 videos here -->
                 </div>
+
             </div>            
             <div style="text-align: center; margin-top: 40px;">
                 <a href="https://www.youtube.com/channel/UChq1gUUAkOuwhG-qxbbrBfg" class="btn-primary"
