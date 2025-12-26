@@ -1,0 +1,41 @@
+<svg viewBox="0 0 1280 720" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color: black;">
+  <!-- Background Image - Linked relatively. This file is in the same artifact dir -->
+  <image href="thumbnail_bg_desk_1766575204644.png" width="1280" height="720" preserveAspectRatio="xMidYMid slice" />
+  
+  <!-- Semi-transparent overlay for text readability -->
+  <rect x="0" y="480" width="1280" height="240" fill="navy" opacity="0.6" />
+
+  <!-- Title Text -->
+  <text x="640" y="580" 
+        font-family="'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif" 
+        font-size="52" 
+        font-weight="bold" 
+        fill="white" 
+        text-anchor="middle"
+        filter="url(#shadow)">
+    なぜ、元・行政書士の私が
+  </text>
+  <text x="640" y="660" 
+        font-family="'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif" 
+        font-size="64" 
+        font-weight="bold" 
+        fill="white" 
+        text-anchor="middle"
+        filter="url(#shadow)">
+     カウンセラーになったのか
+  </text>
+
+  <!-- Shadow Filter -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="3" dy="3" result="offsetblur" />
+      <feFlood flood-color="black" />
+      <feComposite in2="offsetblur" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朗読動画サムネイル作成機</title>
+    <style>
+        body { font-family: sans-serif; background: #ddd; padding: 20px; text-align: center; }
+        .container { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        canvas { width: 100%; max-width: 800px; aspect-ratio: 16/9; margin-bottom: 20px; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        select { padding: 10px; font-size: 16px; margin-bottom: 20px; width: 100%; max-width: 600px; }
+        button { padding: 10px 20px; font-size: 18px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #219150; }
+    </style>
+</head>
+<body>
+    <h1>サムネイル作成機 (#1 - #12)</h1>
+    <div class="container">
+        <label style="display:block; margin-bottom:10px; font-weight:bold;">1. エピソードを選択</label>
+        <select id="episodeSelect">
+            <!-- Options will be populated by JS -->
+        </select>
+        
+        <label style="display:block; margin-bottom:10px; margin-top:15px; font-weight:bold;">2. その回に合う画像を選択（お持ちの場合）</label>
+        <div style="margin-bottom: 20px;">
+            <input type="file" id="bgInput" accept="image/*">
+            <span style="font-size:0.8em; color:#666;">※選択しない場合はデフォルト画像になります</span>
+        </div>
+
+        <canvas id="canvas" width="1280" height="720"></canvas>
+        <br>
+        <button id="saveBtn">画像を保存 (PNG)</button>
+    </div>
+
+    <script>
+        const episodes = [
+            { id: "1", line1: "なぜ、元・行政書士の私が", line2: "カウンセラーになったのか", bgFile: "thumbnail_bg_desk_1766575204644.png" },
+            { id: "2", line1: "「私のせい？」から「私で変わる！」へ", line2: "現実を動かす心の仕組み", bgFile: "bg_02_reality_change_1766578359586.png" },
+            { id: "3", line1: "「本当の自分」が", line2: "見つからないあなたへ", bgFile: "bg_03_true_self_1766578380546.png" },
+            { id: "4", line1: "「やっぱり自分はダメだ」と", line2: "責めてしまうあなたへ", bgFile: "bg_04_self_compassion_1766578399896.png" },
+            { id: "5", line1: "凍て鶴の瞑想", line2: "～心の死と再生の作法～", bgFile: "bg_05_frozen_crane_1766578307644.png" },
+            { id: "6", line1: "もしかして、心に「敵」を", line2: "飼っていませんか？", bgFile: "bg_06_enemy_in_heart_1766578434980.png" },
+            { id: "7", line1: "心の中の「敵」と和解する方法", line2: "重たい鎧を脱ぎ捨てるヒント", bgFile: "bg_07_reconcile_enemy_1766578455240.png" },
+            { id: "8", line1: "「敵」の正体は", line2: "あなたと同じ「恐れ」かもしれない", bgFile: "bg_08_fear_is_enemy_1766578477114.png" },
+            { id: "9", line1: "その「戦い」、あなたの", line2: "“思い込み”が生んでいませんか？", bgFile: "bg_09_glasses_of_assumption_1766578514849.png" },
+            { id: "10", line1: "「敵」を「味方」に変える魔法の言葉", line2: "“好敵手”という視点の自由", bgFile: "bg_10_enemy_to_ally_1766578531148.png" },
+            { id: "11", line1: "なぜ、私たちは「助け合い」に", line2: "心惹かれるのか？", bgFile: "bg_11_lion_fish_1766578325443.png" },
+            { id: "12", line1: "50歳からが、本当の修行。", line2: "～剣聖の言葉が教え～", bgFile: "bg_12_50_training_1766578550229.png" }
+        ];
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const selector = document.getElementById('episodeSelect');
+        const saveBtn = document.getElementById('saveBtn');
+        const bgInput = document.getElementById('bgInput');
+        
+        let currentBgImage = new Image();
+        const defaultBgImage = new Image();
+        
+        // Load default
+        defaultBgImage.src = "thumbnail_bg_desk_1766575204644.png";
+        defaultBgImage.onload = () => {
+             // Initial load handled by change event logic mostly, but ensure something is there
+             if (!currentBgImage.src) {
+                 draw(); 
+             }
+        };
+
+        // Handle File Input
+        bgInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const img = new Image();
+                img.onload = () => {
+                    currentBgImage = img;
+                    draw();
+                };
+                img.src = URL.createObjectURL(file);
+            }
+        });
+
+        // Populate dropdown
+        episodes.forEach((ep, index) => {
+            const opt = document.createElement('option');
+            opt.value = index;
+            opt.text = `#${ep.id}: ${ep.line1} ${ep.line2}`;
+            selector.appendChild(opt);
+        });
+
+        selector.addEventListener('change', () => {
+             const ep = episodes[selector.value];
+             if(ep.bgFile) {
+                 const img = new Image();
+                 img.onload = () => {
+                     currentBgImage = img;
+                     draw();
+                 };
+                 img.src = ep.bgFile; // Load auto-generated image
+             } else {
+                 if(defaultBgImage.complete) {
+                     currentBgImage = defaultBgImage;
+                     draw();
+                 }
+             }
+        });
+
+        // Initial Trigger
+        window.addEventListener('load', () => {
+             selector.dispatchEvent(new Event('change'));
+        });
+
+        function draw() {
+            const ep = episodes[selector.value];
+            
+            // Draw Background (cover style)
+            if (currentBgImage.complete && currentBgImage.naturalWidth !== 0) {
+                 const scale = Math.max(canvas.width / currentBgImage.width, canvas.height / currentBgImage.height);
+                 const x = (canvas.width / 2) - (currentBgImage.width / 2) * scale;
+                 const y = (canvas.height / 2) - (currentBgImage.height / 2) * scale;
+                 ctx.drawImage(currentBgImage, x, y, currentBgImage.width * scale, currentBgImage.height * scale);
+            } else {
+                 ctx.fillStyle = "#333";
+                 ctx.fillRect(0,0,1280,720);
+            }
+
+            // Draw Overlay
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fillRect(0, 480, 1280, 240);
+
+            // Text Settings
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.shadowColor = "rgba(0,0,0,0.8)";
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 3;
+            ctx.shadowOffsetY = 3;
+
+            // Line 1
+            ctx.font = "bold 52px 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif";
+            ctx.fillText(ep.line1, 640, 580);
+
+            // Line 2
+            ctx.font = "bold 64px 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif";
+            ctx.fillText(ep.line2, 640, 660);
+        }
+
+        saveBtn.addEventListener('click', () => {
+            const ep = episodes[selector.value];
+            const link = document.createElement('a');
+            link.download = `thumbnail_${ep.id}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+    </script>
+</body>
+</html>
